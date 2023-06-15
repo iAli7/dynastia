@@ -2,8 +2,8 @@
 import config from '../config/config';
 
 setInterval(() => {
-    config.happines.value += 1
-}, 2000);
+    config.happines.value = Number((-1 + (config.humanity.value / 10)).toFixed(1));
+}, 5000);
 </script>
 
 <template>

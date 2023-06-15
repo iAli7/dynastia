@@ -10,8 +10,6 @@ function addHuman() {
 }
 
 function countdownTick() {
-  console.log(countdown.value);
-
   if (countdown.value === 0) {
     countdown.value = 5;
   }

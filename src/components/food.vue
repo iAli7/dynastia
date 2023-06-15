@@ -4,8 +4,8 @@ import config from '../config/config';
 const showTooltip = ref(false)
 
 setInterval(() =>{
-    config.food.value =  config.food.value += config.humanity.value * .25
-}, 2000)
+    config.food.value = Number((config.food.value + config.happines.value + config.humanity.value).toFixed(1))
+}, 5000)
 </script>
 
 <template>
@@ -18,7 +18,7 @@ setInterval(() =>{
                     Anlık Yemek Durumu:
                 </div>
                 <div class="tooltip-item-value">
-                    -1.25
+                    {{ showFoodState }}
                 </div>
             </div>
           </div>

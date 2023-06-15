@@ -1,9 +1,9 @@
 import { ref } from "vue"
 
 const config = {
-    humanity: ref(5),
-    happines: ref(-5),
-    food: ref(-10)
+    humanity: ref(1),
+    happines: ref(1),
+    food: ref(5)
 }
 
 export default config
