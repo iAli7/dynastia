@@ -72,18 +72,18 @@ button:focus-visible {
   gap: 2rem;
 }
 
-.happines, .food, .humanity{
+.happiness, .food, .population{
   display: flex;
   gap: .5rem;
   position: relative;
   align-items: center;
 }
 
-.happines-angry .happines-number, .food-angry .food-number{
+.happiness-angry .happiness-number, .food-angry .food-number{
   color: #ff0000;
 }
 
-.happines-image{
+.happiness-image{
   width: 20px;
   height: 20px;
 }
@@ -98,13 +98,13 @@ button:focus-visible {
   width: auto;
 }
 
-.happines-image-wrapper{
+.happiness-image-wrapper{
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.happines-number, .food-number, .humanity-number{
+.happiness-number, .food-number, .population-number{
   font-size: 1rem;
   font-weight: 600;
   color: #0f0;

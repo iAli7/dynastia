@@ -1,8 +1,8 @@
 import { ref } from "vue"
 
 const config = {
-    humanity: ref(1),
-    happines: ref(1),
+    population: ref(1),
+    happiness: ref(1),
     food: ref(5)
 }
 

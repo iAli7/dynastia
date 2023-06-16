@@ -1,16 +1,16 @@
 <script setup lang="ts">
 import food from "./food.vue";
-import happines from './happines.vue';
-import humanity from "./humanity.vue";
+import happiness from './happiness.vue';
+import population from "./population.vue";
 
 </script>
 
 <template>
     <div class="header">
         <div class="container">
-            <happines />
+            <happiness />
             <food />
-            <humanity />
+            <population />
         </div>
     </div>
 </template>

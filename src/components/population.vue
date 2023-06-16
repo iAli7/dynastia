@@ -6,7 +6,7 @@ const showTooltip = ref(false)
 let countdown = ref(5);
 
 function addHuman() {
-  config.humanity.value += 1;
+  config.population.value += 1;
 }
 
 function countdownTick() {
@@ -22,9 +22,9 @@ setInterval(countdownTick, 1000);
 </script>
 
 <template>
-    <div class="humanity" @mouseover="showTooltip = true" @mouseout="showTooltip = false">
+    <div class="population" @mouseover="showTooltip = true" @mouseout="showTooltip = false">
         <img src="../assets/images/icon/human.webp" class="human-image" alt="human icon">
-        <div class="human-number">{{config.humanity.value}}</div>
+        <div class="human-number">{{config.population.value}}</div>
         <div v-if="showTooltip" class="tooltip">
             <div class="tooltip-item">
                 <div class="tooltip-item-subtitle">
