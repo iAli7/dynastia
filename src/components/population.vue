@@ -26,6 +26,7 @@ setInterval(countdownTick, 1000);
         <img src="../assets/images/icon/human.webp" class="human-image" alt="human icon">
         <div class="human-number">{{store.population.value}}</div>
         <div v-if="showTooltip" class="tooltip">
+          <div class="tooltip-title">Popülasyon</div>
             <div class="tooltip-item">
                 <div class="tooltip-item-subtitle">
                     Kalan Süre:

@@ -5,11 +5,11 @@ import convertToInteger from "../utils/convertToInteger"
 
 const showTooltip = ref(false);
 const changeAmount = computed(() => {
-    return convertToInteger(store.population.value / 10)
+    return convertToInteger(- store.population.value / 10 + (store.food.value * 5) / 100)
 });
 
 setInterval(() => {
-    const change = convertToInteger(store.population.value / 10);
+    const change = convertToInteger(- store.population.value / 10);
     store.happiness.value = convertToInteger(store.happiness.value + change);
 }, 5000);
 
@@ -28,11 +28,12 @@ setInterval(() => {
             {{ store.happiness.value }}
         </div>
         <div v-if="showTooltip" class="tooltip">
-            <div class="tooltip-item">
+            <div class="tooltip-title">Mutluluk</div>
+            <div class="tooltip-item tooltip-item-top">
                 <div class="tooltip-item-subtitle">
                     Anlık Mutluluk Durumu:
                 </div>
-                <div class="tooltip-item-value">
+                <div class="tooltip-item-value" :class="{'negative-number':changeAmount < 0}">
                     {{ changeAmount }}
                 </div>
             </div>
@@ -40,8 +41,16 @@ setInterval(() => {
                 <div class="tooltip-item-subtitle">
                     Nüfus:
                 </div>
-                <div class="tooltip-item-value">
-                    {{ convertToInteger(store.population.value / 10) }}
+                <div class="tooltip-item-value" :class="{'negative-number':-store.population.value / 10 < 0}">
+                    {{ convertToInteger(-store.population.value / 10) }}
+                </div>
+            </div>
+            <div class="tooltip-item">
+                <div class="tooltip-item-subtitle">
+                    Yemek:
+                </div>
+                <div class="tooltip-item-value" :class="{'negative-number':changeAmount < 0}">
+                    {{ convertToInteger((store.food.value * 5) / 100) }}
                 </div>
             </div>
         </div>

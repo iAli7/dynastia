@@ -79,8 +79,12 @@ button:focus-visible {
   align-items: center;
 }
 
-.happiness-angry .happiness-number, .food-angry .food-number{
+.happiness-angry .happiness-number, .food-angry .food-number, .negative-number{
   color: rgb(163, 13, 13);;
+}
+
+.tooltip-item-value:not(.negative-number){
+  color: rgba(101,163,13,1);;
 }
 
 .happiness, .food{
@@ -120,34 +124,40 @@ button:focus-visible {
 
 .tooltip {
   position: absolute;
-  background-color: #000;
-  color: #fff;
-  padding: 5px 10px;
+  background-color: rgba(255,255,255,.5);
+  color: #000;
+  padding: 16px 10px;
   border-radius: 4px;
-  bottom: -5px;
+  bottom: -16px;
   min-width: 200px;
-  left: 50%;
-  transform: translate(-50%, 100%);
-  width: max-content;
+  left: 0;
+  transform: translateY(100%);
+  --tw-ring-offset-shadow: 0 0 #0000;
+  --tw-shadow: 0 10px 15px -3px rgb(0 0 0/.1),0 4px 6px -4px rgb(0 0 0/.1);
+  box-shadow: var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-shadow);
+  width: calc(100% - 20px);
 }
 
-.tooltip::before{
-  position: absolute;
-  content: "";
-  background: #000;
-  width: 15px;
-  height: 15px;
-  top: 0px;
-  pointer-events: none;
-  z-index: -1;
-  transform: rotate(45deg) translateX(-50%);
-  left: 50%;
+.tooltip-title{
+  font-weight: 700;
+  font-size: 1.125rem;
+  text-align: left;
+  line-height: 1.75rem;
+  margin-bottom: 0.5rem;
 }
 
 .tooltip-item{
   display: flex;
   align-items: center;
   justify-content: space-between;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.tooltip-item-top{
+  border-bottom: 1px solid rgba(229,231,235,1);
+  padding-bottom: 5px;
+  margin-bottom: 5px;
 }
 
 .resources{
