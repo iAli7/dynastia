@@ -1,27 +1,23 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 import store from '../config/store';
+import convertToInteger from "../utils/convertToInteger"
 
 const showTooltip = ref(false);
-const changeAmount = ref(getChangeAmount());
+const changeAmount = computed(() => {
+    return convertToInteger(store.population.value / 10)
+});
 
 setInterval(() => {
-    const change = getChangeAmount();
-
-    store.happiness.value = parseFloat((store.happiness.value + change).toFixed(2));
-    changeAmount.value = parseFloat(change.toFixed(2));
+    const change = convertToInteger(store.population.value / 10);
+    store.happiness.value = convertToInteger(store.happiness.value + change);
 }, 5000);
 
-function getChangeAmount() {
-    const populationChange = store.population.value / 10;
-    const foodChange = store.food.value / 20;
-    const totalChange = -1 - populationChange + foodChange;
-    return totalChange;
-}
 </script>
 
 <template>
-    <div class="happiness" :class="{ 'happiness-angry': store.happiness.value < 0 }"  @mouseenter="showTooltip = true" @mouseleave="showTooltip = false">
+    <div class="resources-item happiness" :class="{ 'happiness-angry': store.happiness.value < 0 }" @mouseenter="showTooltip = true"
+        @mouseleave="showTooltip = false">
         <div class="happiness-image-wrapper" v-if="store.happiness.value >= 0">
             <img src="../assets/images/icon/happiness.png" class="happiness-image" alt="happiness icon">
         </div>
@@ -42,18 +38,10 @@ function getChangeAmount() {
             </div>
             <div class="tooltip-item">
                 <div class="tooltip-item-subtitle">
-                    Yemek:
+                    Nüfus:
                 </div>
                 <div class="tooltip-item-value">
-                    {{ (store.food.value / 20).toFixed(2) }}
-                </div>
-            </div>
-            <div class="tooltip-item">
-                <div class="tooltip-item-subtitle">
-                    Popülasyon:
-                </div>
-                <div class="tooltip-item-value">
-                    {{ (store.population.value / 10).toFixed(2) }}
+                    {{ convertToInteger(store.population.value / 10) }}
                 </div>
             </div>
         </div>

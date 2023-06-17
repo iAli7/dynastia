@@ -22,7 +22,7 @@ setInterval(countdownTick, 1000);
 </script>
 
 <template>
-    <div class="population" @mouseenter="showTooltip = true" @mouseleave="showTooltip = false">
+    <div class="resources-item population" @mouseenter="showTooltip = true" @mouseleave="showTooltip = false">
         <img src="../assets/images/icon/human.webp" class="human-image" alt="human icon">
         <div class="human-number">{{store.population.value}}</div>
         <div v-if="showTooltip" class="tooltip">

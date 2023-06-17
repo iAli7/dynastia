@@ -1,19 +1,21 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 import store from '../config/store';
+import convertToInteger from "../utils/convertToInteger"
 
 const showTooltip = ref(false);
-const changeAmount = ref((store.population.value / 2) + store.happiness.value);
+const changeAmount = computed(() => {
+    return convertToInteger((store.population.value / 2) + store.happiness.value)
+});
 
 setInterval(() => {
-    const change = Number(((store.population.value / 2) + store.happiness.value).toFixed(2));
-    store.food.value = parseFloat((store.food.value + change).toFixed(2));
-    changeAmount.value = change;
-}, 2500);
+    const change = convertToInteger((store.population.value / 2) + (store.happiness.value * 100) / 100);
+    store.food.value = convertToInteger(store.food.value + change);
+}, 5000);
 </script>
 
 <template>
-    <div class="food" :class="{ 'food-angry': store.food.value < 0 }" @mouseenter="showTooltip = true" @mouseleave="showTooltip = false">
+    <div class="resources-item food" :class="{ 'food-angry': store.food.value < 0 }" @mouseenter="showTooltip = true" @mouseleave="showTooltip = false">
         <img src="../assets/images/icon/food.png" class="food-image" alt="food icon">
         <div class="food-number">{{ store.food.value }}</div>
         <div v-if="showTooltip" class="tooltip">
@@ -30,7 +32,7 @@ setInterval(() => {
                     Mutluluk:
                 </div>
                 <div class="tooltip-item-value">
-                    {{ store.happiness.value }}
+                    {{ convertToInteger((store.happiness.value * 5) / 100) }}
                 </div>
             </div>
             <div class="tooltip-item">
@@ -38,7 +40,7 @@ setInterval(() => {
                     Popülasyon:
                 </div>
                 <div class="tooltip-item-value">
-                    {{ (store.population.value / 5   ) }}
+                    {{ (store.population.value / 2 ) }}
                 </div>
             </div>
         </div>

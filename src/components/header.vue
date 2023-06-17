@@ -8,9 +8,11 @@ import population from "./population.vue";
 <template>
     <div class="header">
         <div class="container">
-            <happiness />
-            <food />
-            <population />
+            <div class="resources">
+                <happiness />
+                <food />
+                <population />
+            </div>
         </div>
     </div>
 </template>

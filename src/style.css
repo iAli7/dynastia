@@ -4,8 +4,8 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: rgba(0, 0, 0, 0.87);
+  background-color: #fff;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -80,7 +80,15 @@ button:focus-visible {
 }
 
 .happiness-angry .happiness-number, .food-angry .food-number{
-  color: #ff0000;
+  color: rgb(163, 13, 13);;
+}
+
+.happiness, .food{
+  border: 2px solid rgba(101,163,13,1);;
+}
+
+.happiness-angry, .food-angry{
+  border: 2px solid rgb(163, 13, 13);;;
 }
 
 .happiness-image{
@@ -107,7 +115,7 @@ button:focus-visible {
 .happiness-number, .food-number, .population-number{
   font-size: 1rem;
   font-weight: 600;
-  color: #0f0;
+  color: rgba(101,163,13,1);
 }
 
 .tooltip {
@@ -140,4 +148,19 @@ button:focus-visible {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.resources{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 1rem;
+}
+
+.resources-item{
+  width: 200px;
+  background: rgba(243,244,246,1);
+  padding: 1.25rem 1rem;
+  display: flex;
+  align-items: center;
+  border-radius: 8px;
 }
