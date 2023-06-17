@@ -5,11 +5,11 @@ import convertToInteger from "../../utils/convertToInteger"
 
 const showTooltip = ref(false);
 const changeAmount = computed(() => {
-    return convertToInteger((store.population.value / 2) + (store.happiness.value * 5) / 100)
+    return convertToInteger(((store.population.value * 10) / 100) + (store.happiness.value * 5) / 100)
 });
 
 setInterval(() => {
-    const change = convertToInteger((store.population.value / 2) + (store.happiness.value * 5) / 100);
+    const change = convertToInteger(((store.population.value * 10) / 100) + (store.happiness.value * 5) / 100);
     store.food.value = convertToInteger(store.food.value + change);
 }, 5000);
 </script>
@@ -40,8 +40,8 @@ setInterval(() => {
                 <div class="tooltip-item-subtitle">
                     Popülasyon:
                 </div>
-                <div class="tooltip-item-value" :class="{'negative-number':(store.population.value / 2) < 0}">
-                    {{ (store.population.value / 2 ) }}
+                <div class="tooltip-item-value" :class="{'negative-number':((store.population.value * 10) / 100) < 0}">
+                    {{ ((store.population.value * 10) / 100 ) }}
                 </div>
             </div>
         </div>

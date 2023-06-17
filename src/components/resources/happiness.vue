@@ -49,7 +49,7 @@ setInterval(() => {
                 <div class="tooltip-item-subtitle">
                     Yemek:
                 </div>
-                <div class="tooltip-item-value" :class="{'negative-number':changeAmount < 0}">
+                <div class="tooltip-item-value" :class="{'negative-number':(store.food.value * 5) / 100 < 0}">
                     {{ convertToInteger((store.food.value * 5) / 100) }}
                 </div>
             </div>
