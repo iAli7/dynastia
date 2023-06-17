@@ -9,7 +9,7 @@ const changeAmount = computed(() => {
 });
 
 setInterval(() => {
-    const change = convertToInteger(- store.population.value / 10);
+    const change = convertToInteger(- store.population.value / 10 + (store.food.value * 5) / 100);
     store.happiness.value = convertToInteger(store.happiness.value + change);
 }, 5000);
 
