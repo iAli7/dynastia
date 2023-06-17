@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue';
-import store from '../config/store';
-import convertToInteger from "../utils/convertToInteger"
+import store from '../../config/store';
+import convertToInteger from "../../utils/convertToInteger"
 
 const showTooltip = ref(false);
 const changeAmount = computed(() => {
@@ -19,10 +19,10 @@ setInterval(() => {
     <div class="resources-item happiness" :class="{ 'happiness-angry': store.happiness.value < 0 }" @mouseenter="showTooltip = true"
         @mouseleave="showTooltip = false">
         <div class="happiness-image-wrapper" v-if="store.happiness.value >= 0">
-            <img src="../assets/images/icon/happiness.png" class="happiness-image" alt="happiness icon">
+            <img src="../../assets/images/icon/happiness.png" class="happiness-image" alt="happiness icon">
         </div>
         <div class="happiness-image-wrapper" v-else>
-            <img src="../assets/images/icon/angry.png" class="happiness-image" alt="happiness icon">
+            <img src="../../assets/images/icon/angry.png" class="happiness-image" alt="happiness icon">
         </div>
         <div class="happiness-number">
             {{ store.happiness.value }}

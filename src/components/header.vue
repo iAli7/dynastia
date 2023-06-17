@@ -1,7 +1,9 @@
 <script setup lang="ts">
-import food from "./food.vue";
-import happiness from './happiness.vue';
-import population from "./population.vue";
+import food from "./resources/food.vue";
+import happiness from './resources/happiness.vue';
+import population from "./resources/population.vue";
+
+import builds from "./builds/builds.vue";
 
 </script>
 
@@ -15,4 +17,6 @@ import population from "./population.vue";
             </div>
         </div>
     </div>
+
+    <builds />
 </template>

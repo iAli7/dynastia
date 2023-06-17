@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue';
-import store from '../config/store';
-import convertToInteger from "../utils/convertToInteger"
+import store from '../../config/store';
+import convertToInteger from "../../utils/convertToInteger"
 
 const showTooltip = ref(false);
 const changeAmount = computed(() => {
@@ -16,7 +16,7 @@ setInterval(() => {
 
 <template>
     <div class="resources-item food" :class="{ 'food-angry': store.food.value < 0 }" @mouseenter="showTooltip = true" @mouseleave="showTooltip = false">
-        <img src="../assets/images/icon/food.png" class="food-image" alt="food icon">
+        <img src="../../assets/images/icon/food.png" class="food-image" alt="food icon">
         <div class="food-number">{{ store.food.value }}</div>
         <div v-if="showTooltip" class="tooltip">
             <div class="tooltip-title">Yemek</div>

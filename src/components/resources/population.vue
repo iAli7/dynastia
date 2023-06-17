@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import store from '../config/store';
+import store from '../../config/store';
 const showTooltip = ref(false)
 
 let countdown = ref(5);
@@ -23,7 +23,7 @@ setInterval(countdownTick, 1000);
 
 <template>
     <div class="resources-item population" @mouseenter="showTooltip = true" @mouseleave="showTooltip = false">
-        <img src="../assets/images/icon/human.webp" class="human-image" alt="human icon">
+        <img src="../../assets/images/icon/human.webp" class="human-image" alt="human icon">
         <div class="human-number">{{store.population.value}}</div>
         <div v-if="showTooltip" class="tooltip">
           <div class="tooltip-title">Popülasyon</div>
