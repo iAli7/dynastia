@@ -24,10 +24,10 @@
       key: "Balıkçı Kulübesi",
       description: "Balıkçı kulübesi alarak saniyede kazandığınız yemeği arttırabilirsiniz",
       revenue: {
-          food: 10
+          food: 12
       },
       cost: {
-          food: 500
+          food: 400
       },
   },
   ];

@@ -5,11 +5,11 @@ import convertToInteger from "../../utils/convertToInteger"
 
 const showTooltip = ref(false);
 const changeAmount = computed(() => {
-    return convertToInteger(((store.population.value * 10) / 100) + (store.happiness.value * 5) / 100)
+    return convertToInteger(((store.population.value * 10) / 100) + (store.happiness.value * 5) / 100 + store.buffFood.value)
 });
 
 setInterval(() => {
-    const change = convertToInteger(((store.population.value * 10) / 100) + (store.happiness.value * 5) / 100);
+    const change = convertToInteger(((store.population.value * 10) / 100) + (store.happiness.value * 5) / 100 + store.buffFood.value);
     store.food.value = convertToInteger(store.food.value + change);
 }, 5000);
 </script>
@@ -42,6 +42,14 @@ setInterval(() => {
                 </div>
                 <div class="tooltip-item-value" :class="{'negative-number':((store.population.value * 10) / 100) < 0}">
                     {{ ((store.population.value * 10) / 100 ) }}
+                </div>
+            </div>
+            <div class="tooltip-item" v-if="store.buffFood.value != 0">
+                <div class="tooltip-item-subtitle">
+                    Binalardan ek yemek:
+                </div>
+                <div class="tooltip-item-value" :class="{'negative-number':store.buffFood.value < 0}">
+                    {{ store.buffFood.value }}
                 </div>
             </div>
         </div>

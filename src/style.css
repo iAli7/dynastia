@@ -201,7 +201,7 @@ button:focus-visible {
 }
 
 .builds-item{
-  text-align: left;
+  text-align: center;
   --tw-border-opacity: 1;
   border: 1px solid rgba(229,231,235,var(--tw-border-opacity));
   border-radius: 0.5rem;
@@ -224,5 +224,36 @@ button:focus-visible {
 
 .builds-item-description{
   font-size: 14px;
-  max-width: 250px;
+}
+
+.builds-item-image{
+  height: 120px;
+  width: 120px;
+  margin: 0 auto;
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  --tw-border-opacity: 1;
+  border: 1px solid rgba(229,231,235,var(--tw-border-opacity));
+  transform: translate(-50%, -50%);
+  background-color: rgba(101,163,13,.4);;
+  backdrop-filter: blur(8px);
+  padding: 20px 25px;
+  border-radius: 8px;
+  z-index: 999;
+}
+
+.modal p {
+  max-width: 420px;
+}
+
+.modal-content {
+  margin-bottom: 10px;
+}
+
+.modal-danger{
+background: rgb(163, 13, 13,.4);
 }
