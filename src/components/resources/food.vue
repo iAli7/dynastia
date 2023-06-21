@@ -7,10 +7,12 @@ import convertToInteger from '../../utils/convertToInteger';
 
 const showTooltip = ref(false);
 const food = useNumberMap("food")
+const happiness = useNumberMap("happiness")
+const population = useNumberMap("population")
 
 setInterval(() => {
-    let populationFood = store.population.value * 10 / 100;
-    let happinessFood = store.happiness.value * 2 / 100;
+    let populationFood = population.total.value * 10 / 50;
+    let happinessFood = happiness.total.value * 5 / 50;
 
     food.setItem("happiness", happinessFood)
     food.setItem("population", populationFood)
@@ -18,7 +20,7 @@ setInterval(() => {
 </script>
 
 <template>
-    <div class="resources-item food" :class="{ 'food-angry': store.food.value < 0 }" @mouseenter="showTooltip = true" @mouseleave="showTooltip = false">
+    <div class="resources-item food" :class="{ 'food-angry': food.total.value < 0 }" @mouseenter="showTooltip = true" @mouseleave="showTooltip = false">
         <img src="../../assets/images/icon/food.png" class="food-image" alt="food icon">
         <div class="food-number">{{ convertToInteger(food.total.value) }}</div>
         <div v-if="showTooltip" class="tooltip">

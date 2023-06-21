@@ -2,10 +2,19 @@
 import { ref, onMounted, onBeforeUnmount, watch } from 'vue';
 import BUILDINGS from '../../config/build';
 import Tooltip from './Tooltip.vue';
-import store from '../../config/store';
 import convertToInteger from '../../utils/convertToInteger';
+import useNumberMap from '../../utils/useNumberMap';
+import { translate } from '../../locale';
+
+const food = useNumberMap("food")
 
 const tooltips = ref(BUILDINGS.map(() => false));
+const modalVisible = ref(false);
+const successModalVisible = ref(false);
+const dangerModalVisible = ref(false);
+const countdown = ref(5);
+
+let timer: NodeJS.Timer;
 
 const showTooltip = (index:number) => {
   tooltips.value[index] = true;
@@ -15,21 +24,15 @@ const hideTooltip = (index:number) => {
   tooltips.value[index] = false;
 };
 
-const modalVisible = ref(false);
-const successModalVisible = ref(false);
-const dangerModalVisible = ref(false);
-const countdown = ref(5);
-let timer: NodeJS.Timer;
-
 const handleUpgrade = (build: any) => {
     const revenuePrice = build.revenue.food;
     const costPrice = build.cost.food;
 
     if(modalVisible.value) return;
 
-    if (!modalVisible.value && store.food.value - costPrice >= 0) {
-      store.food.value = convertToInteger(store.food.value - costPrice);
-      store.buffFood.value += revenuePrice;
+    if (!modalVisible.value && food.total.value - costPrice >= 0) {
+      food.setItem(build.key, revenuePrice)
+
       openSuccessModal();
     } else {
       openDangerModal();
@@ -100,7 +103,7 @@ onBeforeUnmount(() => {
       <div class="builds-item" @click="handleUpgrade(building)" v-for="(building, index) in BUILDINGS" :key="building.key" @mouseenter="showTooltip(index)" @mouseleave="hideTooltip(index)">
         <img src="../../assets/images/icon/quarters.png" class="builds-item-image" alt="">
         <div class="builds-item-title">
-          {{ building.key }}
+          {{ translate(building.key) }}
         </div>
         <div class="builds-item-description">
           {{ building.description }}

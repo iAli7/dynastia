@@ -11,23 +11,23 @@
   
   const BUILDINGS: BuildingsUnstrictKeys[] = [
     {
-        key: "Avcı Kulübesi",
+        key: "hunter.build",
         description: "Avcı kulübesi alarak saniyede kazandığınız yemeği arttırabilirsiniz",
         revenue: {
             food: 2
         },
         cost: {
-            food: 100
+            food: 40
         },
     },
     {
-      key: "Balıkçı Kulübesi",
+      key: "fish.build",
       description: "Balıkçı kulübesi alarak saniyede kazandığınız yemeği arttırabilirsiniz",
       revenue: {
-          food: 12
+          food: 10
       },
       cost: {
-          food: 400
+          food: 100
       },
   },
   ];

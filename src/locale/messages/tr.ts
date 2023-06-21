@@ -2,6 +2,9 @@ const tr = {
     "food": "Yemek",
     "population": "Nüfus",
     "happiness": "Mutluluk",
+    
+    "hunter.build": "Avcı Kulubesi",
+    "fish.build": "Balıkçı Kulubesi"
 }
 
 export default tr;

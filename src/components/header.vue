@@ -4,7 +4,6 @@ import happiness from './resources/happiness.vue';
 import population from "./resources/population.vue";
 
 import builds from "./builds/builds.vue";
-import light from "./resources/light.vue";
 
 </script>
 
@@ -14,7 +13,6 @@ import light from "./resources/light.vue";
             <div class="resources">
                 <happiness />
                 <food />
-                <light />
                 <population />
             </div>
         </div>
