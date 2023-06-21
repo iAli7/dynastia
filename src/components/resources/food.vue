@@ -12,17 +12,15 @@ setInterval(() => {
     let populationFood = store.population.value * 10 / 100;
     let happinessFood = store.happiness.value * 2 / 100;
 
-    food.setItem("happiness", convertToInteger(happinessFood))
-    food.setItem("population", convertToInteger(populationFood))
-
-    console.log(food.data.value)
-}, 3000);
+    food.setItem("happiness", happinessFood)
+    food.setItem("population", populationFood)
+}, 5000);
 </script>
 
 <template>
     <div class="resources-item food" :class="{ 'food-angry': store.food.value < 0 }" @mouseenter="showTooltip = true" @mouseleave="showTooltip = false">
         <img src="../../assets/images/icon/food.png" class="food-image" alt="food icon">
-        <div class="food-number">{{ food.total.value }}</div>
+        <div class="food-number">{{ convertToInteger(food.total.value) }}</div>
         <div v-if="showTooltip" class="tooltip">
             <div class="tooltip-title">Yemek</div>
             <div class="tooltip-item" v-for="(value, key) in food.data.value" :key="key">
@@ -30,7 +28,7 @@ setInterval(() => {
                     {{ translate(key) }}:
                 </div>
                  <div class="tooltip-item-value" :class="{ 'negative-number': value < 0 }">
-                    {{ value }}
+                    {{ convertToInteger(value) }}
                  </div>
             </div>
         </div>

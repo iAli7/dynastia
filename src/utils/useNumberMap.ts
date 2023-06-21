@@ -21,7 +21,7 @@ const useNumberMap = (mapKey: string, defaultData?: Data): NumberMap => {
   const data = useStorage<Data>(mapKey, defaultData || {});
 
   const total = computed(() => Object.values(data.value)
-    .reduce((acc, value) => convertToInteger(acc + value), 0));
+    .reduce((acc, value) => acc + value, 0));
 
   const getFilteredTotal: NumberMap['getFilteredTotal'] = (excludeKey, filterValue = () => true) => Object.entries(data.value)
     .reduce((acc, [key, value]) => {
