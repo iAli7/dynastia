@@ -26,7 +26,10 @@ a:hover {
 body {
   margin: 0;
   display: flex;
-  min-height: 100vh;
+  height: 100vh;
+  background-image: url("./assets/images/background.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
 }
 
 h1 {
@@ -162,12 +165,12 @@ button:focus-visible {
 
 .resources{
   display: grid;
-  grid-template-columns: repeat(3,1fr);
+  grid-template-columns: repeat(4,1fr);
   gap: 1rem;
+  width: 100%;
 }
 
 .resources-item{
-  width: 200px;
   background: rgba(243,244,246,1);
   padding: 1.25rem 1rem;
   display: flex;

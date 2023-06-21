@@ -2,6 +2,7 @@
 import { ref, computed } from 'vue';
 import store from '../../config/store';
 import convertToInteger from "../../utils/convertToInteger"
+import useNumberMap from '../../utils/useNumberMap';
 
 const showTooltip = ref(false);
 const changeAmount = computed(() => {
@@ -12,12 +13,17 @@ setInterval(() => {
     const change = convertToInteger(((store.population.value * 10) / 100) + (store.happiness.value * 5) / 100 + store.buffFood.value);
     store.food.value = convertToInteger(store.food.value + change);
 }, 5000);
+
+const food = useNumberMap("food")
+food.setItem("food", 2)
+food.setItem("test", 4)
+console.log(food.data.value)
 </script>
 
 <template>
     <div class="resources-item food" :class="{ 'food-angry': store.food.value < 0 }" @mouseenter="showTooltip = true" @mouseleave="showTooltip = false">
         <img src="../../assets/images/icon/food.png" class="food-image" alt="food icon">
-        <div class="food-number">{{ store.food.value }}</div>
+        <div class="food-number">{{ food.total.value }}</div>
         <div v-if="showTooltip" class="tooltip">
             <div class="tooltip-title">Yemek</div>
             <div class="tooltip-item tooltip-item-top">

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted, onBeforeUnmount } from 'vue';
+import { ref, onMounted, onBeforeUnmount, watch } from 'vue';
 import BUILDINGS from '../../config/build';
 import Tooltip from './Tooltip.vue';
 import store from '../../config/store';
@@ -43,10 +43,15 @@ const openSuccessModal = () => {
   timer = setInterval(() => {
     countdown.value--;
     if (countdown.value === 0) {
-      clearInterval(timer);
       closeSuccessModal();
     }
   }, 1000);
+};
+
+const closeSuccessModal = () => {
+  successModalVisible.value = false;
+  modalVisible.value = false;
+  clearInterval(timer);
 };
 
 const openDangerModal = () => {
@@ -54,15 +59,19 @@ const openDangerModal = () => {
   modalVisible.value = true;
 };
 
-const closeSuccessModal = () => {
-  successModalVisible.value = false;
-  modalVisible.value = false;
-};
-
 const closeDangerModal = () => {
   dangerModalVisible.value = false;
   modalVisible.value = false;
 };
+
+onMounted(() => {
+  watch(modalVisible, (newValue) => {
+    if (!newValue) {
+      countdown.value = 5;
+      clearInterval(timer);
+    }
+  });
+});
 
 onBeforeUnmount(() => {
   clearInterval(timer);
