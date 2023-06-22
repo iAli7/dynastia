@@ -3,7 +3,7 @@ import { ref, onMounted, onBeforeUnmount, watch } from 'vue';
 import BUILDINGS from '../../config/build';
 import Tooltip from './Tooltip.vue';
 import convertToInteger from '../../utils/convertToInteger';
-import useNumberMap from '../../utils/useNumberMap';
+import useNumberMap from '../../composables/useNumberMap';
 import { translate } from '../../locale';
 
 const food = useNumberMap("food")
@@ -113,3 +113,4 @@ onBeforeUnmount(() => {
     </div>
   </div>
 </template>
+../../composables/useNumberMap

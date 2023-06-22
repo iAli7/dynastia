@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import store from '../../config/store';
-import useNumberMap from '../../utils/useNumberMap';
+import useNumberMap from '../../composables/useNumberMap';
 import {translate} from "../../locale/index"
 import convertToInteger from '../../utils/convertToInteger';
 
@@ -36,3 +36,4 @@ setInterval(() => {
         </div>
     </div>
 </template>
+../../composables/useNumberMap

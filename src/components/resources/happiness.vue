@@ -2,7 +2,7 @@
 import { h, ref } from 'vue';
 import store from '../../config/store';
 import {translate} from "../../locale/index"
-import useNumberMap from '../../utils/useNumberMap';
+import useNumberMap from '../../composables/useNumberMap';
 import convertToInteger from "../../utils/convertToInteger"
 
 const showTooltip = ref(false);
@@ -43,4 +43,4 @@ setInterval(() => {
             </div>
         </div>
     </div>
-</template>
+</template>../../composables/useNumberMap

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import useNumberMap from '../../utils/useNumberMap';
+import useNumberMap from '../../composables/useNumberMap';
 const showTooltip = ref(false)
 
 let countdown = ref(5);
@@ -38,4 +38,4 @@ setInterval(countdownTick, 1000);
             </div>
           </div>
     </div>
-</template>
+</template>../../composables/useNumberMap

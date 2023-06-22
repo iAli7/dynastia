@@ -3,7 +3,7 @@ import {
   computed, type ComputedRef, type Ref,
 } from 'vue';
 
-import convertToInteger from './convertToInteger';
+import convertToInteger from '../utils/convertToInteger';
 
 type Data = { [key: string]: number };
 export interface NumberMap {
