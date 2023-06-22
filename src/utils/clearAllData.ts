@@ -8,7 +8,6 @@ const gold = useNumberMap("gold")
 const clearAllData = () =>{
     localStorage.clear();
     [food, happiness, population, gold].forEach(el =>{
-        console.log("siliniyo")
         el.deleteItem("hunter.build")
         el.deleteItem("fish.build")
         el.deleteItem("happiness")

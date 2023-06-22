@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import { ref, onMounted, onBeforeUnmount, watch } from 'vue';
 import BUILDINGS from '../../config/build';
-import Tooltip from './Tooltip.vue';
+import tooltip from './tooltip.vue';
 import useNumberMap from '../../composables/useNumberMap';
 import { translate } from '../../locale';
+import { MessageKey } from '../../locale/messages/tr';
 
 const food = useNumberMap("food")
 const gold = useNumberMap("gold")
@@ -14,13 +15,13 @@ const successModalVisible = ref(false);
 const dangerModalVisible = ref(false);
 const countdown = ref(5);
 
-let timer: NodeJS.Timer;
+let timer: any;
 
-const showTooltip = (index:number) => {
+const showTooltip = (index: number) => {
   tooltips.value[index] = true;
 };
 
-const hideTooltip = (index:number) => {
+const hideTooltip = (index: number) => {
   tooltips.value[index] = false;
 };
 
@@ -28,7 +29,7 @@ const handleUpgrade = (build: any) => {
     const revenuePrice = build.revenue.food;
     const costPrice = build.cost.gold;
 
-    if(modalVisible.value) return;
+    if (modalVisible.value) return;
 
     if (!modalVisible.value && gold.total.value + costPrice >= 0) {
       gold.setItem(build.key, costPrice)
@@ -104,14 +105,13 @@ onBeforeUnmount(() => {
       <div class="builds-item" @click="handleUpgrade(building)" v-for="(building, index) in BUILDINGS" :key="building.key" @mouseenter="showTooltip(index)" @mouseleave="hideTooltip(index)">
         <img src="../../assets/images/icon/quarters.png" class="builds-item-image" alt="">
         <div class="builds-item-title">
-          {{ translate(building.key) }}
+          {{ translate(building.key as MessageKey) }}
         </div>
         <div class="builds-item-description">
           {{ building.description }}
         </div>
-        <Tooltip :building="building" :visible="tooltips[index]" />
+        <tooltip :building="building" :visible="tooltips[index]" />
       </div>
     </div>
   </div>
 </template>
-../../composables/useNumberMap

@@ -6,9 +6,6 @@ import gold from "./resources/gold.vue";
 
 import builds from "./builds/builds.vue";
 import days from "./days/days.vue"
-import clearAllData from "../utils/clearAllData";
-
-clearAllData()
 </script>
 
 <template>

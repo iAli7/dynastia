@@ -1,16 +1,15 @@
 import { useStorage } from '@vueuse/core';
-import {
-  computed, type ComputedRef, type Ref,
-} from 'vue';
+import { computed, ComputedRef, Ref } from 'vue';
 
 import convertToInteger from '../utils/convertToInteger';
+import { MessageKey } from '../locale/messages/tr';
 
 type Data = { [key: string]: number };
 export interface NumberMap {
   data: Ref<Data>,
   total: ComputedRef<number>,
   deleteItem: (key: string) => void,
-  setItem: (key: string, val: number, allowZeroRevenue?: boolean) => void,
+  setItem: (key: MessageKey, val: number, allowZeroRevenue?: boolean) => void,
   getFilteredTotal: (
     excludeKey: string | ((key: string) => boolean),
     filterKey: (val: number) => boolean
@@ -49,7 +48,11 @@ const useNumberMap = (mapKey: string, defaultData?: Data): NumberMap => {
   };
 
   return {
-    data, total, deleteItem, setItem, getFilteredTotal,
+    data,
+    total,
+    deleteItem,
+    setItem,
+    getFilteredTotal,
   };
 };
 

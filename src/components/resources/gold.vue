@@ -3,6 +3,7 @@ import { ref } from 'vue';
 import useNumberMap from '../../composables/useNumberMap';
 import {translate} from "../../locale/index"
 import convertToInteger from '../../utils/convertToInteger';
+import { MessageKey } from '../../locale/messages/tr';
 
 const showTooltip = ref(false);
 const gold = useNumberMap("gold")
@@ -18,7 +19,7 @@ const gold = useNumberMap("gold")
             <div class="tooltip-item" v-if="gold.total.value === 0">Henüz altın kazanmıyorsun</div>
             <div class="tooltip-item" v-for="(value, key) in gold.data.value" :key="key">
                 <div class="tooltip-item-subtitle">
-                    {{ translate(key) }}:
+                    {{ translate(key as MessageKey) }}:
                 </div>
                  <div class="tooltip-item-value" :class="{ 'negative-number': value < 0 }">
                     {{ convertToInteger(value) }}

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import useNumberMap from '../../composables/useNumberMap';
-import {translate} from "../../locale/index"
+import {MessageKey, translate} from "../../locale/index"
 import convertToInteger from '../../utils/convertToInteger';
 
 const showTooltip = ref(false);
@@ -30,7 +30,7 @@ setInterval(handleFood, 5000);
             <div class="tooltip-title">Yemek</div>
             <div class="tooltip-item" v-for="(value, key) in food.data.value" :key="key">
                 <div class="tooltip-item-subtitle">
-                    {{ translate(key) }}:
+                    {{ translate(key as MessageKey) }}:
                 </div>
                  <div class="tooltip-item-value" :class="{ 'negative-number': value < 0 }">
                     {{ convertToInteger(value) }}

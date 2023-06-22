@@ -5,7 +5,6 @@ import type { Messages } from './messages/tr';
 
 type Language = 'tr';
 export type MessageKey = keyof Messages;
-type MessageValue = Messages[MessageKey];
 
 const messages: { [K in Language]: Messages } = {
   tr,
@@ -13,14 +12,16 @@ const messages: { [K in Language]: Messages } = {
 
 export const locale = ref<Language>('tr');
 
-export const translate = (key: MessageKey, n?: unknown): string => {
+export const translate = (key: MessageKey, n?: number): string => {
   const message = messages[locale.value][key];
 
   if (Array.isArray(message)) {
     return key;
   }
 
-  if (!n) return message;
+  if (typeof n === 'undefined') {
+    return message;
+  }
 
   return message.replace('{n}', String(n));
 };
@@ -28,7 +29,9 @@ export const translate = (key: MessageKey, n?: unknown): string => {
 export const translateArray = (key: MessageKey): string[] => {
   const message = messages[locale.value][key];
 
-  if (!Array.isArray(message)) return [key];
+  if (!Array.isArray(message)) {
+    return [key];
+  }
 
   return message;
 };
