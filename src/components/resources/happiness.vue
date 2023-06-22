@@ -16,6 +16,7 @@ const handleHappiness = () =>{
 
     happiness.setItem("food", happinessFood)
     happiness.setItem("population", happinessPopulation)
+    happiness.setItem("base", 5)
 }
 
 handleHappiness()
@@ -36,7 +37,6 @@ setInterval(handleHappiness, 5000);
         </div>
         <div v-if="showTooltip" class="tooltip">
             <div class="tooltip-title">Mutluluk</div>
-            <div class="tooltip-item" v-if="happiness.total.value === 0">Henüz Mutluluk kazanmıyorsun</div>
             <div class="tooltip-item" v-for="(value, key) in happiness.data.value" :key="key">
                 <div class="tooltip-item-subtitle">
                     {{ translate(key as MessageKey) }}:
