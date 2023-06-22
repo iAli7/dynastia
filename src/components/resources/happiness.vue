@@ -10,13 +10,16 @@ const food = useNumberMap("food")
 const happiness = useNumberMap("happiness")
 const population = useNumberMap("population")
 
-setInterval(() => {
+const handleHappiness = () =>{
     let happinessFood = (food.total.value * 5) / 100;
     let happinessPopulation = - (population.total.value * 5) / 200;
 
     happiness.setItem("food", happinessFood)
     happiness.setItem("population", happinessPopulation)
-}, 5000);
+}
+
+handleHappiness()
+setInterval(handleHappiness, 5000);
 </script>
 
 <template>
@@ -33,6 +36,7 @@ setInterval(() => {
         </div>
         <div v-if="showTooltip" class="tooltip">
             <div class="tooltip-title">Mutluluk</div>
+            <div class="tooltip-item" v-if="happiness.total.value === 0">Henüz Mutluluk kazanmıyorsun</div>
             <div class="tooltip-item" v-for="(value, key) in happiness.data.value" :key="key">
                 <div class="tooltip-item-subtitle">
                     {{ translate(key) }}:

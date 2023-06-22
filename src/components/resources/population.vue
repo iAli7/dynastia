@@ -18,6 +18,7 @@ function countdownTick() {
   countdown.value--;
 }
 
+addHuman()
 setInterval(addHuman, 5000)
 setInterval(countdownTick, 1000);
 </script>

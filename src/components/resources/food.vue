@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import store from '../../config/store';
 import useNumberMap from '../../composables/useNumberMap';
 import {translate} from "../../locale/index"
 import convertToInteger from '../../utils/convertToInteger';
@@ -10,13 +9,17 @@ const food = useNumberMap("food")
 const happiness = useNumberMap("happiness")
 const population = useNumberMap("population")
 
-setInterval(() => {
+const handleFood = () =>{
     let populationFood = population.total.value * 10 / 50;
     let happinessFood = happiness.total.value * 5 / 50;
 
     food.setItem("happiness", happinessFood)
     food.setItem("population", populationFood)
-}, 5000);
+    food.setItem("base", 10)
+}
+
+handleFood()
+setInterval(handleFood, 5000);
 </script>
 
 <template>

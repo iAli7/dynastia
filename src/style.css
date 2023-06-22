@@ -73,27 +73,12 @@ button:focus-visible {
   gap: 2rem;
 }
 
-.happiness, .food, .population{
-  display: flex;
-  gap: .5rem;
-  position: relative;
-  align-items: center;
-}
-
 .happiness-angry .happiness-number, .food-angry .food-number, .negative-number{
   color: rgb(163, 13, 13);;
 }
 
 .tooltip-item-value:not(.negative-number){
   color: rgba(101,163,13,1);;
-}
-
-.happiness, .food{
-  border: 2px solid rgba(101,163,13,1);;
-}
-
-.happiness-angry, .food-angry{
-  border: 2px solid rgb(163, 13, 13);;;
 }
 
 .happiness-image{
@@ -104,6 +89,15 @@ button:focus-visible {
 .food-image{
   height: 25px;
   width: 25px;
+}
+
+.gold-image{
+  height: 25px;
+  width: 25px;
+}
+
+.gold-number{
+  color: rgba(245,158,11,1);
 }
 
 .human-image{
@@ -170,10 +164,12 @@ button:focus-visible {
 }
 
 .resources-item{
-  background: rgba(243,244,246,1);
+  background: #00000017;
   padding: 1.25rem 1rem;
   display: flex;
   align-items: center;
+  gap: .5rem;
+  position: relative;
   border-radius: 8px;
 }
 

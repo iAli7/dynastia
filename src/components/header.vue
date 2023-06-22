@@ -2,10 +2,13 @@
 import food from "./resources/food.vue";
 import happiness from './resources/happiness.vue';
 import population from "./resources/population.vue";
+import gold from "./resources/gold.vue";
 
 import builds from "./builds/builds.vue";
 import days from "./days/days.vue"
+import clearAllData from "../utils/clearAllData";
 
+clearAllData()
 </script>
 
 <template>
@@ -15,6 +18,7 @@ import days from "./days/days.vue"
                 <happiness />
                 <food />
                 <population />
+                <gold />
             </div>
             <days></days>
         </div>

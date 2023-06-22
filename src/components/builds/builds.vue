@@ -2,11 +2,11 @@
 import { ref, onMounted, onBeforeUnmount, watch } from 'vue';
 import BUILDINGS from '../../config/build';
 import Tooltip from './Tooltip.vue';
-import convertToInteger from '../../utils/convertToInteger';
 import useNumberMap from '../../composables/useNumberMap';
 import { translate } from '../../locale';
 
 const food = useNumberMap("food")
+const gold = useNumberMap("gold")
 
 const tooltips = ref(BUILDINGS.map(() => false));
 const modalVisible = ref(false);
@@ -26,11 +26,12 @@ const hideTooltip = (index:number) => {
 
 const handleUpgrade = (build: any) => {
     const revenuePrice = build.revenue.food;
-    const costPrice = build.cost.food;
+    const costPrice = build.cost.gold;
 
     if(modalVisible.value) return;
 
-    if (!modalVisible.value && food.total.value - costPrice >= 0) {
+    if (!modalVisible.value && gold.total.value + costPrice >= 0) {
+      gold.setItem(build.key, costPrice)
       food.setItem(build.key, revenuePrice)
 
       openSuccessModal();

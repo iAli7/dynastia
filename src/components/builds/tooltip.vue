@@ -2,10 +2,10 @@
     <div class="tooltip" v-if="visible">
       <div class="tooltip-item">
         <div class="tooltip-item-subtitle">
-          Harcanacak yemek:
+          Harcanacak altın:
         </div>
         <div class="tooltip-item-value negative-number">
-          {{ building.cost.food }}
+          {{ building.cost.gold }}
         </div>
       </div>
       <div class="tooltip-item">

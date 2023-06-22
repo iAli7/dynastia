@@ -5,7 +5,7 @@
       food: number;
     },
     cost: {
-        food: number
+        gold: number
     };
   }
   
@@ -17,7 +17,7 @@
             food: 2
         },
         cost: {
-            food: 40
+            gold: -40
         },
     },
     {
@@ -27,7 +27,7 @@
           food: 10
       },
       cost: {
-          food: 100
+          gold: 100
       },
   },
   ];

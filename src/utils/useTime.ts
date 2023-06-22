@@ -1,7 +1,7 @@
 import { ref } from "vue";
 import useDay from "./useDay";
 
-const time = ref("8:00");
+const time = ref(localStorage.getItem("time") || "8:00");
 let isDayUpdated = false;
 
 setInterval(() => {
@@ -22,6 +22,7 @@ setInterval(() => {
   }
 
   time.value = `${nextHour < 10 ? "0" : ""}${nextHour}:${nextMinute < 10 ? "0" : ""}${nextMinute}`;
+  localStorage.setItem("time", time.value);
 }, 500);
 
 export default time;
