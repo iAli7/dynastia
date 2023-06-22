@@ -10,7 +10,8 @@ const day = useDay();
         <div class="days-title">Gün</div>
         <div class="days-value">
             {{ day.day }}
-
+        </div>
+        <div class="days-value">
             {{ time }}
         </div>
     </div>

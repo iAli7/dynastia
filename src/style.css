@@ -263,11 +263,13 @@ background: rgb(163, 13, 13,.4);
 
 .days-value{
   font-weight: 700;
+  text-align: center;
   font-size: 1.25rem;
 }
 
 .days{
   background: #00000017;
-  padding: 1rem 2rem;
+  padding: .6rem 2rem;
   border-radius: 5px;
+  min-width: 80px;
 }

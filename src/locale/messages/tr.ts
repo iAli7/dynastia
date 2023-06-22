@@ -1,5 +1,5 @@
 const tr = {
-    "base": "Başlangıç",
+    "base": "Temel",
     "food": "Yemek",
     "population": "Nüfus",
     "happiness": "Mutluluk",
