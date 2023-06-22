@@ -12,6 +12,7 @@ const clearAllData = () =>{
         el.deleteItem("fish.build")
         el.deleteItem("happiness")
         el.deleteItem("population")
+        el.deleteItem("food")
     })
 }
 

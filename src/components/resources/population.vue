@@ -18,7 +18,7 @@ function countdownTick() {
   countdown.value--;
 }
 
-addHuman()
+population.setItem("base", 1)
 setInterval(addHuman, 5000)
 setInterval(countdownTick, 1000);
 </script>
