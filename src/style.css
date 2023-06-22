@@ -259,3 +259,19 @@ button:focus-visible {
 .modal-danger{
 background: rgb(163, 13, 13,.4);
 }
+
+.days-title{
+  font-size: .9rem;
+  text-transform: uppercase;
+}
+
+.days-value{
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+
+.days{
+  background: #00000017;
+  padding: 1rem 2rem;
+  border-radius: 5px;
+}

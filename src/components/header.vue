@@ -4,6 +4,7 @@ import happiness from './resources/happiness.vue';
 import population from "./resources/population.vue";
 
 import builds from "./builds/builds.vue";
+import days from "./days/days.vue"
 
 </script>
 
@@ -15,6 +16,7 @@ import builds from "./builds/builds.vue";
                 <food />
                 <population />
             </div>
+            <days></days>
         </div>
     </div>
 
