@@ -10,11 +10,13 @@ const happiness = useNumberMap("happiness")
 const population = useNumberMap("population")
 
 const handleFood = () =>{
-    let populationFood = population.total.value * 10 / 50;
+    let idleFood = population.total.value * 0.4;
+    let populationFood = - population.total.value * 0.2;
     let happinessFood = happiness.total.value * 5 / 50;
 
     food.setItem("happiness", happinessFood)
     food.setItem("population", populationFood)
+    food.setItem("idle", idleFood)
     food.setItem("base", 10)
 }
 

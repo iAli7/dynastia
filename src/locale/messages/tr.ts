@@ -3,6 +3,8 @@ const tr = {
     "food": "Yemek",
     "population": "Nüfus",
     "happiness": "Mutluluk",
+
+    "idle": "İşsizler",
     
     "hunter.build": "Avcı Kulubesi",
     "fish.build": "Balıkçı Kulubesi"

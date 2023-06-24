@@ -122,6 +122,7 @@ button:focus-visible {
   background-color: rgba(255,255,255,.5);
   color: #000;
   padding: 16px 10px;
+  z-index: 99;
   border-radius: 4px;
   bottom: -16px;
   min-width: 200px;
@@ -230,13 +231,12 @@ button:focus-visible {
   margin: 0 auto;
 }
 
-.modal {
+.toast {
   position: fixed;
-  top: 50%;
-  left: 50%;
+  bottom: 5px;
+  right: 5px;
   --tw-border-opacity: 1;
   border: 1px solid rgba(229,231,235,var(--tw-border-opacity));
-  transform: translate(-50%, -50%);
   background-color: rgba(101,163,13,.4);;
   backdrop-filter: blur(8px);
   padding: 20px 25px;
@@ -244,15 +244,11 @@ button:focus-visible {
   z-index: 999;
 }
 
-.modal p {
-  max-width: 420px;
+.toast p {
+  max-width: 350px;
 }
 
-.modal-content {
-  margin-bottom: 10px;
-}
-
-.modal-danger{
+.toast-danger{
 background: rgb(163, 13, 13,.4);
 }
 

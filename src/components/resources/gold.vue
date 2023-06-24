@@ -8,6 +8,7 @@ import { MessageKey } from '../../locale/messages/tr';
 const showTooltip = ref(false);
 const gold = useNumberMap("gold")
 
+gold.setItem("base", 500)
 </script>
 
 <template>
