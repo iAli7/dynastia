@@ -14,4 +14,3 @@ const population = useNumberMap("population")
   {{ happiness.data.value }}
   {{ population.data.value }}
 </template>
-./composables/useNumberMap

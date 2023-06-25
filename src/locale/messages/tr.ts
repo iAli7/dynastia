@@ -5,11 +5,11 @@ const tr = {
     "happiness": "Mutluluk",
 
     "idle": "İşsizler",
-    
-    "hunter.build": "Avcı Kulubesi",
+
+    "hunter": "Avcı Kulubesi",
     "fish.build": "Balıkçı Kulubesi",
 
-    "disaster.moon": "Kanlı Ay",
+    "disaster.bloodMoon": "Kanlı Ay",
     "disaster.storm": "Fırtına",
     "disaster.earthquake": "Deprem",
     "disaster.tsunami": "Tsunami",

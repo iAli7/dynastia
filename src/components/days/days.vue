@@ -1,18 +1,21 @@
 <script setup lang="ts">
-import useDay from '../../utils/useDay';
-import time from '../../utils/useTime';
+import useDay from '../../stores/useDay';
+import useTime from '../../stores/useTime';
 
 const day = useDay();
+const time = useTime()
+
+day.value
 </script>
 
 <template>
     <div class="days">
         <div class="days-title">Gün</div>
         <div class="days-value">
-            {{ day.day }}
+            {{ day.value }}
         </div>
         <div class="days-value">
-            {{ time }}
+            {{ time.value }}
         </div>
     </div>
-</template>
+</template>../../stores/useTime
