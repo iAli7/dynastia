@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { translate } from '../../locale';
+import { MessageKey } from '../../locale/messages/tr';
 
 const showPopup = ref(false);
 const countDiasterDay = ref(3)
@@ -19,7 +20,7 @@ const diasterType = ref("diaster.storm")
                 Tahminlerimize göre fırtınanın bize ulaşması için yaklaşık <span>{{ countDiasterDay }} gün</span> kaldı.
                 <br>
                 <br>
-                Bu sefer beklediğimiz felaket <span>{{ translate(diasterType) }}</span>
+                Bu sefer beklediğimiz felaket <span>{{ translate(diasterType as MessageKey) }}</span>
             </div>
         </div>
         <img src="../../assets/images/character.jpg" class="diaster-character" alt="character">
