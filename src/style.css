@@ -272,7 +272,7 @@ background: rgb(163, 13, 13,.4);
   min-width: 80px;
 }
 
-.diaster{
+.disaster{
   position: fixed;
   bottom: -50px;
   right: 0;
@@ -282,12 +282,12 @@ background: rgb(163, 13, 13,.4);
   transition: .3s transform ease;
 }
 
-.diaster:not(.diaster-active) .diaster-content{
+.disaster:not(.disaster-active) .disaster-content{
   opacity: 0;
   pointer-events: none;
 }
 
-.diaster-content{
+.disaster-content{
   position: relative;
   padding: 1rem;
   margin: 0 1rem;
@@ -297,26 +297,26 @@ background: rgb(163, 13, 13,.4);
   z-index: 3;
 }
 
-.diaster-title{
+.disaster-title{
   font-size: 1.125rem;
   font-weight: 600;
   margin-bottom: .5rem;
 }
 
-.diaster-description{
+.disaster-description{
   max-width: 400px;
   font-size: .9rem;
   line-height: 25px;
 }
 
-.diaster-description span{
+.disaster-description span{
   color: rgb(114, 16, 16);
 }
 
-.diaster-active{
+.disaster-active{
   transform: translateY(-25px);
 }
 
-.diaster-character{
+.disaster-character{
   height: 180px;
 }

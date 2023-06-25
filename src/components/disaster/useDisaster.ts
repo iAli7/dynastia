@@ -1,0 +1,2 @@
+import { disasterTypes } from "./disasterTypes";
+

@@ -9,10 +9,12 @@ const tr = {
     "hunter.build": "Avcı Kulubesi",
     "fish.build": "Balıkçı Kulubesi",
 
-    "diaster": "Felaket Yaklaşıyor Patron!",
-    "diaster.description": "Felaket yaklaşıyor! Zaman daralıyor ve müdahale etmek için acil bir eyleme ihtiyacımız var. Durum hiç de iyi görünmüyor ve tehlike kapımızda.",
-    "diaster.moon": "Kanlı Ay",
-    "diaster.storm": "Fırtına"
+    "disaster.moon": "Kanlı Ay",
+    "disaster.storm": "Fırtına",
+    "disaster.earthquake": "Deprem",
+    "disaster.tsunami": "Tsunami",
+    "disaster.title": "Felaket Yaklaşıyor Patron!",
+    "disaster.description": "Felaket yaklaşıyor! Zaman daralıyor ve müdahale etmek için acil bir eyleme ihtiyacımız var. Durum hiç de iyi görünmüyor ve tehlike kapımızda.",
 }
 
 export default tr;
