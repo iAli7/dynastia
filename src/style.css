@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Poppins', sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -268,4 +270,53 @@ background: rgb(163, 13, 13,.4);
   padding: .6rem 2rem;
   border-radius: 5px;
   min-width: 80px;
+}
+
+.diaster{
+  position: fixed;
+  bottom: -50px;
+  right: 0;
+  cursor: pointer;
+  z-index: 100;
+  text-align: right;
+  transition: .3s transform ease;
+}
+
+.diaster:not(.diaster-active) .diaster-content{
+  opacity: 0;
+  pointer-events: none;
+}
+
+.diaster-content{
+  position: relative;
+  padding: 1rem;
+  margin: 0 1rem;
+  border-radius: 8px;
+  background: #e1e0e0;
+  transition: .3s opacity ease;
+  z-index: 3;
+}
+
+.diaster-title{
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: .5rem;
+}
+
+.diaster-description{
+  max-width: 400px;
+  font-size: .9rem;
+  line-height: 25px;
+}
+
+.diaster-description span{
+  color: rgb(114, 16, 16);
+}
+
+.diaster-active{
+  transform: translateY(-25px);
+}
+
+.diaster-character{
+  height: 180px;
 }

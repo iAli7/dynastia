@@ -5,6 +5,7 @@ import tooltip from './tooltip.vue';
 import useNumberMap from '../../composables/useNumberMap';
 import { translate } from '../../locale';
 import { MessageKey } from '../../locale/messages/tr';
+import { useTick } from '../../utils/useTick';
 
 const food = useNumberMap('food');
 const gold = useNumberMap('gold');
@@ -31,8 +32,12 @@ const handleUpgrade = (build: any) => {
   if (modalVisible.value) return;
 
   if (!modalVisible.value && gold.total.value + costPrice >= 0) {
-    gold.setItem(build.key, costPrice);
-    food.setItem(build.key, revenuePrice);
+    const upgradeResources = () =>{
+      gold.setItem(build.key, costPrice);
+      food.setItem(build.key, revenuePrice);
+    }
+
+    useTick(upgradeResources, 5000)
     openSuccessToast();
   } else {
     openDangerToast();
