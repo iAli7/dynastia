@@ -3,8 +3,6 @@ import food from "./resources/food.vue";
 import happiness from './resources/happiness.vue';
 import population from "./resources/population.vue";
 import gold from "./resources/gold.vue";
-import builds from "./builds/builds.vue";
-
 import useDay from "../stores/useDay";
 
 const day = useDay();
