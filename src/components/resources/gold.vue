@@ -1,12 +1,11 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import useNumberMap from '../../composables/useNumberMap';
 import { translate } from "../../locale/index"
 import convertToInteger from '../../utils/convertToInteger';
 import { MessageKey } from '../../locale/messages/tr';
+import { gold } from '../../composables/resource';
 
 const showTooltip = ref(false);
-const gold = useNumberMap("gold", { base: 500 })
 </script>
 
 <template>

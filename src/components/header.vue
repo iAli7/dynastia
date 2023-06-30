@@ -5,7 +5,6 @@ import population from "./resources/population.vue";
 import gold from "./resources/gold.vue";
 
 import builds from "./builds/builds.vue";
-import days from "./days/days.vue"
 </script>
 
 <template>
@@ -17,7 +16,6 @@ import days from "./days/days.vue"
                 <population />
                 <gold />
             </div>
-            <days></days>
         </div>
     </div>
 

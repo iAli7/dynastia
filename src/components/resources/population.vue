@@ -1,10 +1,9 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import useNumberMap from '../../composables/useNumberMap';
+import { population } from '../../composables/resource';
 const showTooltip = ref(false)
 
 let countdown = ref(5);
-const population = useNumberMap("population")
 
 function addCitizen() {
   const basePopulation = Object.entries(population.data.value).find(([key]) => key === 'base') as [string, number];

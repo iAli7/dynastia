@@ -4,8 +4,6 @@ import useTime from '../../stores/useTime';
 
 const day = useDay();
 const time = useTime()
-
-day.value
 </script>
 
 <template>
@@ -18,4 +16,4 @@ day.value
             {{ time.value }}
         </div>
     </div>
-</template>../../stores/useTime
+</template>

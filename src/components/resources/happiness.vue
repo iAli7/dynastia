@@ -1,14 +1,11 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import {translate} from "../../locale/index"
-import useNumberMap from '../../composables/useNumberMap';
 import convertToInteger from "../../utils/convertToInteger"
 import { MessageKey } from '../../locale/messages/tr';
+import { food, happiness, population } from '../../composables/resource';
 
 const showTooltip = ref(false);
-const food = useNumberMap("food")
-const happiness = useNumberMap("happiness")
-const population = useNumberMap("population")
 
 const handleHappiness = () =>{
     let happinessFood = (food.total.value * 5) / 80;

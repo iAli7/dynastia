@@ -1,13 +1,11 @@
 <script setup lang="ts">
 import { computed, ref, watchEffect } from 'vue';
-import useNumberMap from '../../composables/useNumberMap';
 import { MessageKey, translate } from "../../locale/index"
 import convertToInteger from '../../utils/convertToInteger';
 
+import { food, happiness, population } from '../../composables/resource';
+
 const showTooltip = ref(false);
-const food = useNumberMap("food", { base: 10 })
-const happiness = useNumberMap("happiness")
-const population = useNumberMap("population")
 
 watchEffect(() => {
     let idleFood = population.total.value * 0.4;

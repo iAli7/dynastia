@@ -254,6 +254,16 @@ button:focus-visible {
 background: rgb(163, 13, 13,.4);
 }
 
+.days{
+  background: #00000017;
+  padding: .6rem 2rem;
+  border-radius: 5px;
+  min-width: 160px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+}
+
 .days-title{
   font-size: .9rem;
   text-transform: uppercase;
@@ -263,13 +273,6 @@ background: rgb(163, 13, 13,.4);
   font-weight: 700;
   text-align: center;
   font-size: 1.25rem;
-}
-
-.days{
-  background: #00000017;
-  padding: .6rem 2rem;
-  border-radius: 5px;
-  min-width: 80px;
 }
 
 .disaster{
@@ -283,8 +286,7 @@ background: rgb(163, 13, 13,.4);
 }
 
 .disaster:not(.disaster-active) .disaster-content{
-  opacity: 0;
-  pointer-events: none;
+  display: none;
 }
 
 .disaster-content{
@@ -293,7 +295,6 @@ background: rgb(163, 13, 13,.4);
   margin: 0 1rem;
   border-radius: 8px;
   background: #e1e0e0;
-  transition: .3s opacity ease;
   z-index: 3;
 }
 

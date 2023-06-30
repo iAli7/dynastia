@@ -9,6 +9,7 @@ const tr = {
     "hunter": "Avcı Kulubesi",
     "fish.build": "Balıkçı Kulubesi",
 
+    "disaster.unknown": "Bilinmiyor",
     "disaster.bloodMoon": "Kanlı Ay",
     "disaster.storm": "Fırtına",
     "disaster.earthquake": "Deprem",
