@@ -13,9 +13,9 @@ import days from "./days.vue"
 <style lang="scss">
     .sidebar{
         position: fixed;
-        left:0;
-        bottom: 0;
-        height: 350px;
+        left:10px;
+        bottom: 60px;
+        height: 300px;
         width: 300px;
     
     }

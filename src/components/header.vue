@@ -10,21 +10,29 @@ const day = useDay();
 
 <template>
     <div class="header">
+        <div class="days" style="width: 120px; margin-bottom: 1rem">
+            <div class="days-title">Gün</div>
+            <div class="days-value">
+                {{ day.value }}
+            </div>
+        </div>
         <div class="container">
             <div class="resources">
                 <happiness />
                 <food />
                 <population />
                 <gold />
-                <div class="days">
-                    <div class="days-title">Gün</div>
-                    <div class="days-value">
-                        {{ day.value }}
-                    </div>
-                </div>
             </div>
         </div>
     </div>
 
     <!-- <builds /> -->
 </template>
+
+<style lang="scss">
+    .header{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+</style>

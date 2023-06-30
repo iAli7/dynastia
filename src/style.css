@@ -126,7 +126,6 @@ img{
   z-index: 99;
   border-radius: 4px;
   bottom: -16px;
-  min-width: 200px;
   left: 0;
   transform: translateY(100%);
   --tw-ring-offset-shadow: 0 0 #0000;
@@ -158,6 +157,10 @@ img{
   margin-bottom: 5px;
 }
 
+.header .container{
+  width: 850px;
+}
+
 .resources{
   display: grid;
   grid-template-columns: repeat(4,1fr);
@@ -166,8 +169,8 @@ img{
 }
 
 .resources-item{
-  background: #00000017;
-  padding: 1.25rem 1rem;
+  background: #0000000c;
+  padding: .75rem 1rem;
   display: flex;
   align-items: center;
   gap: .5rem;
