@@ -12,11 +12,11 @@ const showPopup = ref(false)
 
 export const useDisaster = () => {
     const getRandomDisasterType = (): MessageKey => {
-            const keys = Object.keys(disasterTypes);
-            const randomKey = keys[Math.floor(Math.random() * keys.length)];
-            const randomDisasterType = disasterTypes[Number(randomKey)] as MessageKey;
-            disasterType.value = randomDisasterType;
-            return randomDisasterType;
+        const keys = Object.keys(disasterTypes);
+        const randomKey = keys[Math.floor(Math.random() * keys.length)];
+        const randomDisasterType = disasterTypes[Number(randomKey)] as MessageKey;
+        disasterType.value = randomDisasterType;
+        return randomDisasterType;
     };
 
     const getRandomDisasterDay = (): number => {
@@ -29,38 +29,29 @@ export const useDisaster = () => {
 
     const day = useDay();
     const count = countDisasterDay.value;
-    
+
     if (count === 0) {
         countDisasterDay.value = day.value + disasterDay.value;
     }
 
-    let interval: number | null | undefined = null;
-
-    const startCountdown = () => {
-        interval = setInterval(() => {
-            if (day.value > countDisasterDay.value - 1) {
-                getRandomDisasterDay();
-                getRandomDisasterType()
-                countDisasterDay.value = day.value + disasterDay.value;
-            }
-            if (day.value === countDisasterDay.value) {
-                showPopup.value = true
-            }
-        }, 2000);
-    };
-
-    const stopCountdown = () => {
-        if (interval) {
-            clearInterval(interval);
-            interval = null;
+    const handleDisasterProcess = () => {
+        if (countDisasterDay.value - day.value === -1) {
+            getRandomDisasterDay();
+            getRandomDisasterType()
+            countDisasterDay.value = day.value + disasterDay.value;
+        } else if (countDisasterDay.value - day.value === 0) {
+            showPopup.value = true
+            setTimeout(() => {
+                showPopup.value = false
+            }, 4000);
         }
     };
 
-    startCountdown();
+    handleDisasterProcess();
 
     return {
         disasterType,
-        stopCountdown,
+        handleDisasterProcess,
         countDisasterDay,
         showPopup
     };

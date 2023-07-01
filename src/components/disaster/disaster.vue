@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {  ref } from 'vue';
+import {  computed, ref } from 'vue';
 import { translate } from '../../locale';
 
 import { useDisaster } from "./useDisaster";
@@ -8,6 +8,12 @@ import showDisaster from './showDisaster.vue';
 
 const showPopup = ref(false);
 const { disasterType, countDisasterDay } = useDisaster();
+
+const calcDisasterDay = computed(() => {
+  const value = countDisasterDay.value - useDay().value;
+  return value < 0 ? 0 : value;
+});
+
 </script>
 
 <template>
@@ -20,7 +26,11 @@ const { disasterType, countDisasterDay } = useDisaster();
                 {{ translate("disaster.description") }}
                 <br>
                 <br>
-                Tahminlerimize göre fırtınanın bize ulaşması için yaklaşık <span>{{ countDisasterDay.value - useDay().value}} gün</span> kaldı.
+                Tahminlerimize göre fırtınanın bize ulaşması için yaklaşık 
+                <span v-if="calcDisasterDay === 0">Felaket gerçekleşiyor!</span>
+                <span v-else-if="calcDisasterDay > 0">{{ calcDisasterDay }} gün</span>
+                <span v-else>0 gün</span>
+                kaldı.
                 <br>
                 <br>
                 Bu sefer beklediğimiz felaket <span>{{ translate(disasterType.value) }}</span>
