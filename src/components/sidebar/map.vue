@@ -1,6 +1,6 @@
 <template>
     <div class="map">
-        <img src="../../assets/images/map.png" alt="map">
+        <img src="../../assets/images/map.jpg" alt="map">
     </div>
 </template>
 
