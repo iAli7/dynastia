@@ -1,3 +1,4 @@
+import { ref } from "vue";
 import { MessageKey } from "../../locale/messages/tr";
 import useDay from "../../stores/useDay";
 import createStorage from "../../utils/createStorage";
@@ -6,6 +7,8 @@ import { disasterTypes } from "./disasterTypes";
 const disasterType = createStorage<MessageKey>("disaster.type", "disaster.unknown");
 const disasterDay = createStorage<number>("disaster.time", 0);
 const countDisasterDay = createStorage<number>("disaster.countDay", 0);
+const showPopup = ref(false)
+
 
 export const useDisaster = () => {
     const getRandomDisasterType = (): MessageKey => {
@@ -41,9 +44,9 @@ export const useDisaster = () => {
                 countDisasterDay.value = day.value + disasterDay.value;
             }
             if (day.value === countDisasterDay.value) {
-                console.log("Hey!");
+                showPopup.value = true
             }
-        }, 1000);
+        }, 2000);
     };
 
     const stopCountdown = () => {
@@ -53,12 +56,12 @@ export const useDisaster = () => {
         }
     };
 
-    // getRandomDisasterType();
     startCountdown();
 
     return {
         disasterType,
         stopCountdown,
-        countDisasterDay
+        countDisasterDay,
+        showPopup
     };
 };

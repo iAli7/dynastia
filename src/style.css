@@ -261,7 +261,7 @@ background: rgb(163, 13, 13,.4);
   bottom: -50px;
   right: 0;
   cursor: pointer;
-  z-index: 100;
+  z-index: 50;
   text-align: right;
   transition: .3s transform ease;
 }

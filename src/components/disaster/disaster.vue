@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import {  ref } from 'vue';
 import { translate } from '../../locale';
-import { MessageKey } from '../../locale/messages/tr';
 
 import { useDisaster } from "./useDisaster";
 import useDay from '../../stores/useDay';
+import showDisaster from './showDisaster.vue';
 
 const showPopup = ref(false);
 const { disasterType, countDisasterDay } = useDisaster();
@@ -28,4 +28,5 @@ const { disasterType, countDisasterDay } = useDisaster();
         </div>
         <img src="../../assets/images/character.jpg" class="disaster-character" alt="character">
     </div>
+    <showDisaster></showDisaster>
 </template>
