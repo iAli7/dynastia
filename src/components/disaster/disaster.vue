@@ -8,8 +8,6 @@ import useDay from '../../stores/useDay';
 
 const showPopup = ref(false);
 const { disasterType, countDisasterDay } = useDisaster();
-const selectedDisasterType = ref<MessageKey>(disasterType.value);
-
 </script>
 
 <template>
@@ -25,7 +23,7 @@ const selectedDisasterType = ref<MessageKey>(disasterType.value);
                 Tahminlerimize göre fırtınanın bize ulaşması için yaklaşık <span>{{ countDisasterDay.value - useDay().value}} gün</span> kaldı.
                 <br>
                 <br>
-                Bu sefer beklediğimiz felaket <span>{{ translate(selectedDisasterType) }}</span>
+                Bu sefer beklediğimiz felaket <span>{{ translate(disasterType.value) }}</span>
             </div>
         </div>
         <img src="../../assets/images/character.jpg" class="disaster-character" alt="character">

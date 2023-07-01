@@ -53,7 +53,7 @@ export const useDisaster = () => {
         }
     };
 
-    getRandomDisasterType();
+    // getRandomDisasterType();
     startCountdown();
 
     return {
