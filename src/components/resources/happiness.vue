@@ -9,7 +9,7 @@ const showTooltip = ref(false);
 
 const handleHappiness = () =>{
     let happinessFood = (food.total.value * 5) / 80;
-    let happinessPopulation = - (population.total.value * 5) / 200;
+    let happinessPopulation = - (population.value * 5) / 200;
 
     happiness.setItem("food", happinessFood)
     happiness.setItem("population", happinessPopulation)

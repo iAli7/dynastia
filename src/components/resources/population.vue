@@ -3,31 +3,29 @@ import { ref } from 'vue';
 import { population } from '../../composables/resource';
 const showTooltip = ref(false)
 
-let countdown = ref(5);
+let countdown = ref(25);
 
-function addCitizen() {
-  const basePopulation = Object.entries(population.data.value).find(([key]) => key === 'base') as [string, number];
-
-  population.setItem("base", basePopulation[1] + 1);
+const addCitizen = () =>{
+  population.value +=1
+  localStorage.setItem("population", String(population.value))
 }
 
 function countdownTick() {
   if (countdown.value === 0) {
-    countdown.value = 5;
+    countdown.value = 25;
     addCitizen()
   };
 
   countdown.value--;
 }
 
-population.setItem("base", 1)
 setInterval(countdownTick, 1000);
 </script>
 
 <template>
   <div class="resources-item population" @mouseenter="showTooltip = true" @mouseleave="showTooltip = false">
     <img src="../../assets/images/icon/human.webp" class="human-image" alt="human icon">
-    <div class="human-number">{{ population.total.value }}</div>
+    <div class="human-number">{{ population }}</div>
     <div v-if="showTooltip" class="tooltip">
       <div class="tooltip-title">Popülasyon</div>
       <div class="tooltip-item">
@@ -40,4 +38,4 @@ setInterval(countdownTick, 1000);
       </div>
     </div>
   </div>
-</template>../../composables/useNumberMap
+</template>

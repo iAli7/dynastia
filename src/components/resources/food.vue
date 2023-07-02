@@ -8,8 +8,8 @@ import { food, happiness, population } from '../../composables/resource';
 const showTooltip = ref(false);
 
 watchEffect(() => {
-    let idleFood = population.total.value * 0.4;
-    let populationFood = - population.total.value * 0.2;
+    let idleFood = population.value * 0.4;
+    let populationFood = - population.value * 0.2;
 
     food.setItem("population", populationFood)
     food.setItem("idle", idleFood)
