@@ -1,13 +1,9 @@
 <script setup lang="ts">
 import mapProcess from './handleMapProcess';
-import mapImage from '../../assets/images/map.jpg';
 import { onMounted, onUnmounted } from 'vue';
 
 const map = mapProcess.map
 const mapContainer = mapProcess.mapContainer
-const showMap = mapProcess.showMap;
-
-console.log(showMap.value)
 
 onMounted(() => {
 window.addEventListener('resize', mapProcess.limitOffsets);
@@ -23,7 +19,7 @@ window.removeEventListener("keyup", mapProcess.handleShowMap)
 
 <template>
   <div class="map-container" :class="{'map-container-active': mapProcess.showMap.value}" ref="mapContainer" @wheel="mapProcess.handleWheel" @mousedown="mapProcess.startDragging" @mousemove="mapProcess.drag" @mouseup="mapProcess.stopDragging" @mouseleave="mapProcess.stopDragging">
-    <img ref="map" :src="mapImage" :style="mapProcess.mapStyle.value" draggable="false"/>
+    <img ref="map" src="../../../assets/images/map.jpg" :style="mapProcess.mapStyle.value" draggable="false"/>
   </div>
 </template>
 

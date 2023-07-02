@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import maps from "./map.vue"
 import days from "./days.vue"
-import MapLarge from "./mapLarge.vue";
+import MapLarge from "./mapLarge/mapLarge.vue";
 
 </script>
 
