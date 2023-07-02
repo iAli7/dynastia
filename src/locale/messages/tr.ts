@@ -11,6 +11,8 @@ const tr = {
 
     "disaster.unknown": "Bilinmiyor",
     "disaster.bloodMoon": "Kanlı Ay",
+    "disaster.bloodMoon.description": 
+    "Korkunç bir ışıkla parlayan kanlı ay, hızla yükseliyor, bizi bilinmez tehlikelerle dolu bir geceye sürüklüyor. Hava ölüm sessizliğiyle kaplanmış, ayın kızıl yüzü, dünya üzerindeki her varlığın yüreğine korku salıyor. Durum umut verici değil; kaçış yolu gibi görünen hiçbir şey yok. Dünya, bu korkunç tehdidin altında titriyor ve tehdit kapımızda. Acil harekete geçmemiz gerekiyor. Bu kırmızı ışık altında, birliğimiz ve cesaretimiz olmadan, umut ışığı bile gözükmüyor.",
     "disaster.storm": "Fırtına",
     "disaster.earthquake": "Deprem",
     "disaster.tsunami": "Tsunami",

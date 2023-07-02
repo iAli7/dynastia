@@ -26,7 +26,7 @@ const useTime = defineStore('time', () => {
 
     time.value = `${nextHour < 10 ? "0" : ""}${nextHour}:${nextMinute < 10 ? "0" : ""}${nextMinute}`;
     localStorage.setItem("time", time.value);
-  }, 150);
+  }, 1);
 
   return { value: time }
 })

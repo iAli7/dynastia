@@ -17,9 +17,8 @@ import MapLarge from "./mapLarge/mapLarge.vue";
     .sidebar{
         position: fixed;
         left:10px;
-        bottom: 60px;
-        height: 300px;
+        bottom: 65px;
         width: 300px;
-    
+        height: 320px;
     }
 </style>
