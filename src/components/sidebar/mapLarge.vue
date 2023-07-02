@@ -1,13 +1,8 @@
-<template>
-  <div class="map-container" ref="mapContainer" @wheel="handleWheel" @mousedown="startDragging" @mousemove="drag" @mouseup="stopDragging" @mouseleave="stopDragging">
-    <img ref="map" :src="mapImage" :style="mapStyle" draggable="false"/>
-  </div>
-</template>
-
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted, watch, computed } from 'vue';
 import mapImage from '../../assets/images/map.jpg';
 
+const showMap = ref(false)
 const mapContainer = ref<HTMLElement | null>(null);
 const map = ref<HTMLElement | null>(null);
 const dragging = ref(false);
@@ -75,8 +70,6 @@ if (potentialScale >= minScale && potentialScale <= maxScale) {
 }
 };
 
-
-
 const startDragging = (event: MouseEvent) => {
 event.preventDefault();
 dragging.value = true;
@@ -107,20 +100,37 @@ const mapStyle = computed(() => {
 return `transform: translate(${offsetX.value}px, ${offsetY.value}px) scale(${scale.value})`;
 });
 
+const handleShowMap = (event: KeyboardEvent) =>{
+  if(event.key === "m" || event.key === "M"){
+    if(showMap.value){
+      showMap.value = false
+    }else{
+      showMap.value = true
+    }
+  }
+}
+
 onMounted(() => {
 window.addEventListener('resize', limitOffsets);
+window.addEventListener("keyup", handleShowMap)
 });
 
 watch([offsetX, offsetY, scale], limitOffsets);
 
-
 onUnmounted(() => {
 window.removeEventListener('resize', limitOffsets);
+window.removeEventListener("keyup", handleShowMap)
 });
 
 </script>
 
-<style scoped>
+<template>
+  <div class="map-container" :class="{'map-container-active': showMap}" ref="mapContainer" @wheel="handleWheel" @mousedown="startDragging" @mousemove="drag" @mouseup="stopDragging" @mouseleave="stopDragging">
+    <img ref="map" :src="mapImage" :style="mapStyle" draggable="false"/>
+  </div>
+</template>
+
+<style scoped lang="scss">
 .map-container {
 width: 100%;
 height: 100vh;
@@ -129,7 +139,12 @@ position: fixed;
 left: 0;
 cursor: grab;
 top: 0;
+z-index: 50;
 border: 1px solid black;
+
+&:not(&-active){
+  display: none;
+}
 }
 
 .map-container img {
