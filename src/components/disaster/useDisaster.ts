@@ -3,12 +3,13 @@ import { MessageKey } from "../../locale/messages/tr";
 import useDay from "../../stores/useDay";
 import createStorage from "../../utils/createStorage";
 import { disasterTypes } from "./disasterTypes";
+import { disasterEffect } from "./disasterEffect";
+import { food } from "../../composables/resource";
 
 const disasterType = createStorage<MessageKey>("disaster.type", "disaster.unknown");
 const disasterDay = createStorage<number>("disaster.time", 0);
 const countDisasterDay = createStorage<number>("disaster.countDay", 0);
 const showPopup = ref(false)
-
 
 export const useDisaster = () => {
     const getRandomDisasterType = (): MessageKey => {
@@ -34,16 +35,27 @@ export const useDisaster = () => {
         countDisasterDay.value = day.value + disasterDay.value;
     }
 
+    const disasterProcess = () =>{
+        showPopup.value = true;
+
+        disasterEffect.forEach(disaster => {
+            if(!disaster.bloodMoon) return;
+
+            food.setItem("disaster.food", disaster.bloodMoon.food)
+        });
+
+        setTimeout(() => {
+            showPopup.value = false
+        }, 4000);
+    }
+
     const handleDisasterProcess = () => {
         if (countDisasterDay.value - day.value === -1) {
             getRandomDisasterDay();
             getRandomDisasterType()
             countDisasterDay.value = day.value + disasterDay.value;
         } else if (countDisasterDay.value - day.value === 0) {
-            showPopup.value = true
-            setTimeout(() => {
-                showPopup.value = false
-            }, 4000);
+            disasterProcess()
         }
     };
 

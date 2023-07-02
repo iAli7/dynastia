@@ -9,6 +9,8 @@ const tr = {
     "hunter": "Avcı Kulubesi",
     "fish.build": "Balıkçı Kulubesi",
 
+    "disaster.food": "Fırtına yüzünden giden yemek",
+
     "disaster.unknown": "Bilinmiyor",
     "disaster.bloodMoon": "Kanlı Ay",
     "disaster.storm": "Fırtına",
