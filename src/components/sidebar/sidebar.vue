@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import maps from "./map.vue"
 import days from "./days.vue"
+import MapLarge from "./mapLarge.vue";
+
 </script>
 
 <template>
@@ -8,6 +10,7 @@ import days from "./days.vue"
         <days></days>
         <maps></maps>
     </div>
+<MapLarge></MapLarge>
 </template>
 
 <style lang="scss">
