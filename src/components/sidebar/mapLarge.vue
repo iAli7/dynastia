@@ -8,8 +8,8 @@
 import { ref, onMounted, onUnmounted, watch, computed } from 'vue';
 import mapImage from '../../assets/images/map.jpg';
 
-const mapContainer = ref(null);
-const map = ref(null);
+const mapContainer = ref<HTMLElement | null>(null);
+const map = ref<HTMLElement | null>(null);
 const dragging = ref(false);
 const dragStartX = ref(0);
 const dragStartY = ref(0);
@@ -20,6 +20,7 @@ const minScale = 1; // minimum scale değeri belirlenir
 const maxScale = 1.5;
 
 const limitOffsets = () => {
+  if (mapContainer.value == null || map.value == null) return
   const containerRect = mapContainer.value.getBoundingClientRect();
   const mapRect = map.value.getBoundingClientRect();
   const mapWidth = mapRect.width * scale.value;
@@ -34,7 +35,7 @@ const limitOffsets = () => {
 
 
 
-const handleWheel = (event) => {
+const handleWheel = (event: any) => {
   event.preventDefault();
   const delta = Math.sign(event.deltaY) * -0.1;
   const potentialScale = scale.value + delta;
@@ -57,14 +58,14 @@ const handleWheel = (event) => {
 
 
 
-const startDragging = (event) => {
+const startDragging = (event: MouseEvent) => {
   event.preventDefault();
   dragging.value = true;
   dragStartX.value = event.clientX;
   dragStartY.value = event.clientY;
 };
 
-const drag = (event) => {
+const drag = (event: MouseEvent) => {
   if (!dragging.value) return;
 
   const dx = event.clientX - dragStartX.value;
