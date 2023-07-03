@@ -38,10 +38,9 @@ border: 1px solid black;
 
 .map-container img {
 position: absolute;
-top: -300px;
+top: -5vh;
+height: 120vh;
 left: 0;
 width: 100%;
-height: auto;
-object-fit: contain;
 }
 </style>

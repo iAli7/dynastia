@@ -23,6 +23,7 @@ const mapHeight = mapRect.height * scale.value;
 
 if (scale.value === 1.5) {
   maxScaleOffsetX.value = -346;
+  maxScaleOffsetY.value = -217;
 } else if (scale.value === 1.4) {
   maxScaleOffsetX.value = -274;
 } else if (scale.value === 1.3) {
