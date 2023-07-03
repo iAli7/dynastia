@@ -18,7 +18,7 @@ window.removeEventListener("keyup", mapProcess.handleShowMap)
 </script>
 
 <template>
-  <div class="map-container" :class="{'map-container-active': mapProcess.showMap.value}" ref="mapContainer" @wheel="mapProcess.handleWheel" @mousedown="mapProcess.startDragging" @mousemove="mapProcess.drag" @mouseup="mapProcess.stopDragging" @mouseleave="mapProcess.stopDragging">
+  <div class="map-container" ref="mapContainer" @wheel="mapProcess.handleWheel" @mousedown="mapProcess.startDragging" @mousemove="mapProcess.drag" @mouseup="mapProcess.stopDragging" @mouseleave="mapProcess.stopDragging">
     <img ref="map" src="../../../assets/images/map.jpg" :style="mapProcess.mapStyle.value" draggable="false"/>
   </div>
 </template>
@@ -32,12 +32,8 @@ position: fixed;
 left: 0;
 cursor: grab;
 top: 0;
-z-index: 50;
+z-index: 0;
 border: 1px solid black;
-
-&:not(&-active){
-  display: none;
-}
 }
 
 .map-container img {

@@ -10,7 +10,7 @@ const day = useDay();
 
 <template>
     <div class="header">
-        <div class="days" style="width: 120px; margin-bottom: 1rem">
+        <div class="days" style="width: 120px">
             <div class="days-title">Gün</div>
             <div class="days-value">
                 {{ day.value }}

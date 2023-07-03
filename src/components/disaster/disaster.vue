@@ -36,7 +36,7 @@ const calcDisasterDay = computed(() => {
                 Bu sefer beklediğimiz felaket <span>{{ translate(disasterType.value) }}</span>
             </div>
         </div>
-        <img src="../../assets/images/character.jpg" class="disaster-character" alt="character">
+        <img src="../../assets/images/character.png" class="disaster-character" alt="character">
     </div>
     <showDisaster></showDisaster>
 </template>
