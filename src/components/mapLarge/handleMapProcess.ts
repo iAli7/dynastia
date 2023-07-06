@@ -1,6 +1,5 @@
 import { ref, computed } from 'vue';
 
-const showMap = ref(false)
 const mapContainer = ref<HTMLElement | null>(null);
 const map = ref<HTMLElement | null>(null);
 const dragging = ref(false);
@@ -99,14 +98,5 @@ const mapStyle = computed(() => {
 return `transform: translate(${offsetX.value}px, ${offsetY.value}px) scale(${scale.value})`;
 });
 
-const handleShowMap = (event: KeyboardEvent) =>{
-  if(event.key === "m" || event.key === "M"){
-    if(showMap.value){
-      showMap.value = false
-    }else{
-      showMap.value = true
-    }
-  }
-}
 
-export default {handleShowMap, handleWheel, stopDragging, startDragging, drag, mapStyle, showMap, map, mapContainer,limitOffsets}
+export default { handleWheel, stopDragging, startDragging, drag, mapStyle, map, mapContainer,limitOffsets}

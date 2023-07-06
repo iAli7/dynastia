@@ -1,9 +1,5 @@
-<script setup lang="ts">
-import handleMapProcess from './mapLarge/handleMapProcess';
-</script>
-
 <template>
-    <div class="map" @click="handleMapProcess.showMap.value = true">
+    <div class="map">
         <img src="../../assets/images/map.jpg" alt="map">
     </div>
 </template>
