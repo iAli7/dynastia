@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { mapItemConfig, showPopup } from './mapItemConfig';
+import { showPopup } from './mapItemConfig';
 import builds from "../builds/builds.vue"
 
 defineProps({
@@ -44,10 +44,10 @@ defineProps({
         <div class="map-item-popup-bottom">
             <div class="map-item-popup-content">
                 <div class="map-item-popup-title">
-                {{ mapItemConfig[item].title }}
+                    İnşa Menüsü
                 </div>
                 <div class="map-item-popup-description">
-                {{ mapItemConfig[item].description }}
+                    Yapılar inşa et, şehirler kur ve oyun deneyimini kişiselleştir!
                 </div>
                 <builds></builds>
             </div>
